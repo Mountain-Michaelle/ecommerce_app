@@ -1,0 +1,147 @@
+.result-outside{
+    display: flex;
+    margin: 0 auto;
+    left: 0;
+    bottom: 0;
+    top: 2%;
+    background: rgb(0 0 0 / 3%);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99990000;
+
+    .close{
+        width: 50px;
+        height: 50px;
+        position: fixed;
+        top: 13%;
+        right: 42%;
+        left: 42%;
+        background: #ff1b1b70;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        cursor: pointer;
+        font-size: 1.3rem;
+        z-index: 9999999999999999;
+        font-weight: 500;
+        &:hover{
+            transition: 0.3s all;
+            transform: scale(1.1);
+        }
+    }
+
+    h5{
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: grey;
+        margin: 0;
+        padding: 1rem;
+    }
+    .result-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        top: 20%;
+        right: 5%;
+        left: 2.5%;
+        width:95%;
+        height: fit-content;
+        min-height: 300px;
+        max-height: 500px;
+        background-color: white;
+        color: black;
+        z-index: 1000000;
+
+        .results{
+            display: flex;
+            flex-flow: wrap row;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            gap: 1rem;
+            margin: 0.5rem 0 0.5rem 0;
+            justify-content: center;
+
+            p{
+                color: #ff5252;
+                font-size: 1.2rem;
+                font-weight: 500;
+                text-align: center;
+            
+            }
+
+           .img-card{
+            width: 120px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            margin: 0.3rem;
+            box-shadow: 2px 5px 10px #8d8b8b;
+            overflow: hidden;
+            position: relative;
+                img{
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+                flex: 5;
+            }
+            h4{
+                font-size: 0.8rem;
+                text-align: center;
+                padding: 0.5rem;
+                color: rgb(255, 255, 255);
+                font-weight: 600;
+                position: absolute;
+                margin: 0;
+                top: 4.5rem;
+                background-color:rgb(90 23 0 / 64%);
+                width: fit-content;
+
+            }
+
+            .price{
+                display:flex;;
+                align-items: center;
+                background: #e0420a;
+                width: 100%;;
+                padding: 5px;
+                margin: 0;
+                color: white;
+                font-weight: 600;
+                position: absolute;
+                bottom:0;
+                
+
+                h5{
+                    font-size: 1rem;
+                    margin: 0;
+                    padding: 0;
+                    color: inherit;
+                    text-align: center;
+                }
+                small{
+                    text-align: center;
+                }
+            }
+         
+        } 
+        }
+
+        
+    }
+}
+
+
+@media screen and (max-width: 700px){
+    .result-outside{
+        padding-top: 2rem;
+
+        .close{
+            top: 8.5rem;
+        }
+    }
+}
