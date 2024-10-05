@@ -16,7 +16,7 @@ const CartDetails = ({basket}) => {
         <div className='subtotal_one'>
            <div className='detail_left'>
             {
-                basket.length != 0  ?
+                basket.length !== 0  ?
                  <h3>Your Shopping Basket</h3> :
                  <h3 style={{color: 'red', fontSize:'1.3rem'}}>Your shopping Cart is empty</h3>
             }
