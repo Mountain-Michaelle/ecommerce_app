@@ -23,7 +23,7 @@ export const loadUser = () => async dispatch => {
 
     const body = JSON.stringify(localStorage.getItem('access'))
     try{
-        const res = await axios.post(`${process.env.REACT_APP_ENDPOINT_URL}/account/user/`, body, config)
+        const res = await axios.post(`${process.env.REACT_APP_AUTH_URL}/account/user/`, body, config)
 
         if(res?.data){
 
@@ -61,7 +61,7 @@ export const sign_up = (name, email, phone, password, re_password) => async disp
     const body = JSON.stringify({name, email, phone, password, re_password})
 
     try{
-        const res = await axios.post(`${process.env.REACT_APP_ENDPOINT_URL}/account/sign-up/`, body, config)
+        const res = await axios.post(`${process.env.REACT_APP_AUTH_URL}/account/sign-up/`, body, config)
 
         if(res?.data){
 
@@ -103,7 +103,7 @@ export const login = (email, password) => async dispatch => {
     const body = JSON.stringify({email, password})
 
     try{
-        const res = await axios.post(`${process.env.REACT_APP_ENDPOINT_URL}/api/token/`, body, config)
+        const res = await axios.post(`${process.env.REACT_APP_AUTH_URL}/api/token/`, body, config)
 
         if(res?.data){
 
@@ -143,7 +143,7 @@ export const login = (email, password) => async dispatch => {
         const body = JSON.stringify(localStorage.getItem('access'))
 
     try{
-       const res = await axios.post(`${process.env.REACT_APP_ENDPOINT_URL}/account/is-authenticated/`, body, config)
+       const res = await axios.post(`${process.env.REACT_APP_AUTH_URL}/account/is-authenticated/`, body, config)
 
        if (res?.data.isAuthenticated){
             dispatch({
