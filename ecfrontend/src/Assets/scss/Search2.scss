@@ -46,6 +46,15 @@
         color: white;
         text-transform: capitalize;
         cursor: pointer;
+        position: relative;
+
+        img{
+            position: absolute;
+            left: 0.2rem;
+            width: 30px;
+            top: 0;
+            z-index: 10000;
+        }
     }
     
 }

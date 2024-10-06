@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useState} from 'react';
 import '../../Assets/scss/Results.scss';
 import '../../Assets/scss/Search2.scss';
+import IconSearch from '../../Assets/css/static/search.svg';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Box } from '@mui/material';
 import { RotatingLines } from 'react-loader-spinner';
@@ -59,7 +60,11 @@ const Search2 = () => {
         }
         
     }
-    
+
+    const searchs = Array.isArray(results) && results.length !== 0
+    ? results
+    : [];
+
     return(
         <>
         <form className='on-small' onSubmit={handleSubmit}>
@@ -68,7 +73,7 @@ const Search2 = () => {
                 loading ?
                   <button>{'....'}</button>
                  :
-                 <button type='submit'>search</button>
+                 <button type='submit'><img className='icon' src={IconSearch} alt="Search" /></button>
                 
             }
            
@@ -101,7 +106,7 @@ const Search2 = () => {
                         {
                             results.length !== 0  ?
 
-                            results.map(result => {
+                            searchs.map(result => {
                                 return(
                                     <div className='img-card'>
                                     <span onClick={()=> handleNavigate(result.slug)}><img src={result.images} alt="" /></span>

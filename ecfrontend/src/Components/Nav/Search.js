@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import '../../Assets/scss/Results.scss';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Box } from '@mui/material';
+import IconSearch from '../../Assets/css/static/search.svg';
 import { RotatingLines } from 'react-loader-spinner';
 const Search = () => {
     const [formData, setFormData] = useState('')
@@ -58,6 +59,11 @@ const Search = () => {
         }
         
     }
+
+    const searchs = Array.isArray(results) && results.length !== 0
+  ? results
+  : [];
+
     return(
         <>
         <form className='search on-small' onSubmit={handleSubmit}>
@@ -66,7 +72,7 @@ const Search = () => {
                 loading ?
                   <button>{'....'}</button>
                  :
-                 <button type='submit'>search</button>
+                 <button type='submit'><img src={IconSearch} alt="Search" /></button>
                 
             }
            
@@ -99,7 +105,7 @@ const Search = () => {
                         {
                             results.length !== 0  ?
 
-                            results.map(result => {
+                            searchs.map(result => {
                                 return(
                                 <div className='img-card'>
                                    <span onClick={()=> handleNavigate(result.slug)}><img src={result.images} alt="" /></span>

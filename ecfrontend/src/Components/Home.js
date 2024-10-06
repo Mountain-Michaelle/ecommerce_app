@@ -42,14 +42,19 @@ const Home = ({server_time, serverTime, cart_expiration}) => {
     server_time()
   },[])
 
-  const productSliced = product.slice(0, 3)
+// Ensure product is always an array before using .filter
+const featured = Array.isArray(product) && product.length !== 0
+  ? product.filter(prod => prod.featured).slice(0, 2)
+  : [];
 
-  const featured = product.filter(prod => prod.featured).slice(0, 2)
-  console.log("sliced products ", product)
+const suggested = Array.isArray(product) && product.length !== 0
+  ? product.filter(prod => prod.suggested).slice(0, 2)
+  : [];
 
-  const suggested = product.filter(prod => prod.suggested).slice(0, 2)
-  
-  const most_popular = product.filter(prod => prod.most_popular).slice(0, 3)
+const most_popular = Array.isArray(product) && product.length !== 0
+  ? product.filter(prod => prod.most_popular).slice(0, 3)
+  : [];
+
 
   return (
     <div className='home'> 
@@ -104,7 +109,7 @@ const Home = ({server_time, serverTime, cart_expiration}) => {
                       strokeColor='rgb(225, 98, 0)' />
                    </Box>
                  :
-                  featured.map(suggest => {
+                 featured?.map(suggest => {
                     return(
                        <Product  id={suggest.id} slug={suggest.slug} title={suggest.name} price={suggest.price} rating={5} description={suggest.excerpt} image={suggest.images}/>
                     )
@@ -131,7 +136,7 @@ const Home = ({server_time, serverTime, cart_expiration}) => {
                     strokeColor='rgb(225, 98, 0)' />
                  </Box>
                :
-                  suggested.map(suggest => {
+               suggested?.map(suggest => {
                     return(
                        <Product  id={suggest.id} slug={suggest.slug} title={suggest.name} price={suggest.price} rating={5} description={suggest.excerpt} image={suggest.images}/>
                     )

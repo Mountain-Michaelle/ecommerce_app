@@ -110,6 +110,14 @@
     color: white;
     text-transform: capitalize;
     cursor: pointer;
+    position: relative;
+}
+.search button img{
+    position: absolute;
+    right: 0.5rem;;
+    width: 30px;
+    top: 0;
+    z-index: 10000;
 }
 
 .header_nav{

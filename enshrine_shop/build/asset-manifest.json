@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.83833879.css",
-    "main.js": "/static/js/main.749f20aa.js",
+    "main.css": "/static/css/main.4e476d85.css",
+    "main.js": "/static/js/main.05bfa83e.js",
     "static/media/CART.png": "/static/media/CART.9e114e055c3c018b54f1.png",
     "static/media/BrandName.png": "/static/media/BrandName.210fd5ae954dbcbfbc72.png",
     "static/media/precuct2.jpeg": "/static/media/precuct2.60b52bee5704310bd2bf.jpeg",
@@ -9,11 +9,12 @@
     "static/media/onlineshop.webp": "/static/media/onlineshop.2f560de78c77f96786cb.webp",
     "static/media/redux.cjs": "/static/media/redux.f6cd7db3b857b93d3bca.cjs",
     "index.html": "/index.html",
-    "main.83833879.css.map": "/static/css/main.83833879.css.map",
-    "main.749f20aa.js.map": "/static/js/main.749f20aa.js.map"
+    "static/media/search.svg": "/static/media/search.987f929d8e34536165e0064070e39058.svg",
+    "main.4e476d85.css.map": "/static/css/main.4e476d85.css.map",
+    "main.05bfa83e.js.map": "/static/js/main.05bfa83e.js.map"
   },
   "entrypoints": [
-    "static/css/main.83833879.css",
-    "static/js/main.749f20aa.js"
+    "static/css/main.4e476d85.css",
+    "static/js/main.05bfa83e.js"
   ]
 }
