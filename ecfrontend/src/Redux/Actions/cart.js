@@ -100,45 +100,6 @@ export const cart_detail = () => async dispatch => {
     }
 }
 
-
-// export const cart = (product_id, quantity, override)  => async dispatch =>  {
-//     // call server time on adding to cart,
-//     cart_time()
-//     const config = {
-//         headers: {
-//             'Accepts': 'application/json',
-//             'Content-Type': 'application/json',
-//         }
-//     }
-
-//     const body = JSON.stringify({product_id, quantity, override})
-
-//     try{
-//        const res = await axios.post(`${BASE_URL}/cart/add/`, body, config)
-//         const {success, error} = res.data;
-//         if(res.data){
-//             dispatch({
-//                 type: ADD_TO_CART_SUCCESS,
-//                 payload: res.data,
-//             })
-//             cart_time()
-//             cart_detail()
-//         }else{
-//             dispatch({
-//                 type: ADD_TO_CART_FAIL,
-//                 payload: error,
-//             })
-//         }
-//     }
-//     catch(error){
-//         dispatch({
-//             type: ADD_TO_CART_FAIL,
-//             payload: console.log(error.response)
-//         })
-//     }
-// }
-
-
 export const cart_add = (id, title, image, price, quantity, slug) => async dispatch => {
     cart_time()
 
