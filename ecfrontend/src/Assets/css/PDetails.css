@@ -1,0 +1,374 @@
+.detail_product{
+    width: 100%;
+    max-width: 1200px;
+    background-color: rgb(255, 251, 251);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1.5rem auto;
+    overflow-x: auto;
+}
+
+.detail_product::-webkit-scrollbar{
+    display: none;
+}
+
+.detail_product h3{
+    color: grey;
+    max-width: 1300px;
+    margin-left: 1.2rem;
+    padding: 10px;
+}
+
+.cont{
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+}
+.details_right{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+}
+
+.details_right h2{
+    color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 1.3rem;
+    letter-spacing: .28rem;
+}
+
+.details_right p{
+    margin-top: .5rem;
+    text-align: justify;
+    width: 98%;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: rgb(69, 58, 58);
+}
+
+
+
+.description{
+    padding: 6px;
+    width: 100%;
+    background-color: rgb(255, 224, 200);
+    color: white;
+    overflow-x: scroll;
+    max-height: 400px;
+}
+
+.description::-webkit-scrollbar{
+    display: none;
+}
+.details_left{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    max-height: 800px;
+    overflow: auto;
+    width: 50%;
+    margin-right: 1.5rem;
+    background-color: white;
+}
+
+.details_left::-webkit-scrollbar{
+    display: none;
+}
+
+.inactive{
+    display: none;
+    transition: .7s ease-out;
+}
+
+.active{
+    transition: 1s ease-in;
+}
+.image_flex{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: flex;
+    margin: 0 auto;
+    max-width: 500px;
+    max-height: 800px;
+    height: 100%;
+}
+.details_left img{
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    max-height: 1000px;;
+    padding: 5px;
+    object-fit: contain;
+}
+
+.details_right select{
+    width: 30%;
+    padding: .5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: rgb(170, 214, 255);
+    outline: rgb(198, 252, 255) !important;
+    color: grey;
+    text-transform: capitalize;
+}
+
+.details_right select option{
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.details_right .MuiButtonBase-root{
+    color: white;
+    background-color: rgb(255, 98, 0);
+
+}
+
+.details_right .MuiButtonBase-root:hover{
+    color: black;
+    background-color: aquamarine;
+}
+.gallery{
+    width: 100%;
+    box-shadow:  0px 1px 5px rgb(224, 224, 224);
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.gallery2{
+    display: flex;
+    width: 97%;
+    display: none;
+    flex-direction: row;
+    overflow-x: scroll;
+    bottom: 0;
+}
+
+.gallery2::-webkit-scrollbar{
+    display: none;
+}
+
+.gallery2 img:hover{
+    box-shadow: 5px 3px 7px 5px rgb(112, 130, 147);
+    border: 1px solid rgb(255, 197, 185);
+    transition: .3s all ease-in-out;
+    transform: translate(height(80px));
+}
+
+
+
+.gallery img{
+    width: 100%;
+    height: 70px;
+    object-fit: contain;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    cursor: pointer;
+    border-bottom: 1rem;
+}
+
+.gallery img:hover{
+    transition: all .3s ease-in-out;
+    transform: translate(height(80px), border(1px solid red));
+}
+
+.price1{
+    padding: 0.1rem 0 3px 0;
+}
+.price1 small{
+    color: goldenrod
+}
+
+.price1 strong{
+    color: rgb(183, 119, 0)
+}
+
+.border{
+    box-shadow: 5px 3px 7px 5px rgb(112, 130, 147);
+}
+.arrow{
+    display: flex;
+    position: absolute;
+    top: 25%;
+    width: 80%;
+    margin: 1rem auto;
+    width: 100%;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.arrow .MuiSvgIcon-root{
+    color: rgb(255, 213, 211);
+    margin: 1.2rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.arrow .MuiSvgIcon-root:hover{
+    font-size: 2.5rem !important;
+    cursor: pointer !important;
+    transition: all .3s ease-in-out;
+    color: rgb(180, 174, 174);
+}
+
+/** Quantity design **/
+.buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: .4rem;
+    gap: 1.2rem;
+    width: 100%;
+    background-color: rgb(255, 251, 251);
+    border-left: 1px solid rgb(189, 189, 237);
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.quantity{
+    display: flex;
+    width: 30%;
+    max-width: 120px;
+    min-width: 70px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: .1rem;
+    background-color: rgb(255, 98, 0);
+}
+
+.minus{
+    width: 30%;
+    background-color: white;
+    height: 100%;
+    margin: 0;
+    padding: .28rem;
+    color: red;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    cursor: pointer;
+    overflow: hidden;
+    border-right: .1px solid rgb(255, 221, 200);;
+}
+
+.plus{
+    width: 30%;
+    color: rgb(0, 255, 0);
+    display: flex;
+    height: 100%;
+    align-items: center;
+    align-items: center;
+    font-weight: 800;
+    padding: .28rem;
+    padding-left: 0;
+    margin: 0;
+    right: 2%;
+    cursor: pointer;
+    overflow: hidden;
+}
+.field{
+    width: 40%;
+    background-color: white;
+    padding-top: .28rem;
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    padding-right: .3rem;
+    cursor:context-menu
+}
+
+.quant{
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    border-top: .5px solid rgb(255, 185, 111);
+    border-left: .5px solid rgb(161, 161, 161);
+    margin: 0 auto;
+}
+
+
+
+
+
+@media screen and (max-width: 1200px){
+    .cont{
+        width: 98%;
+    }
+}
+
+@media  screen and (max-width: 950px) {
+    .details_left{
+        position: relative;
+        margin: 0 auto;
+        width: 95%;
+        margin-bottom: 2rem;
+    }
+
+    .details_left img{
+        width: 100%;
+        height: 300px;
+        padding: 30px;
+    }
+
+    .image_flex{
+        display: flex;
+        position: relative;
+    }
+    .gallery2{
+        display: flex;
+        z-index: 0;
+        margin: 0 auto;
+        background-color: white;
+        width: 100%;
+    }
+    .gallery2 img{
+        width: 100%;
+        height: 50px;
+        padding: 2px;
+        cursor: pointer;
+        margin: 0;
+        transition: all .5s ease;
+        object-fit: contain;
+    }
+
+    .details_right{
+        width: 90%;
+         margin: 0 auto;
+        padding-left: 0rem;
+    }
+
+    .details_right select{
+        width: 50%;
+        font-size: 1rem;
+    }
+    .details_right select option{
+        font-size: 1rem;
+        color: white;
+    }
+    .details_right p{
+       font-size: 1rem;
+    }
+    .gallery{
+        display: none;
+    }
+    .cont{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .arrow .MuiSvgIcon-root{
+        margin: .5rem;
+    }
+}

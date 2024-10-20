@@ -1,0 +1,73 @@
+.subtotal{
+    position: fixed;
+    top: 18%;
+    right: 2%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(255, 255, 255);
+    width: 50%;
+    max-height: 400px;
+    mask-image: none;
+    z-index: 1;
+    padding: 10px;
+    box-shadow: 1px 5px 22px 2px rgb(189, 31, 0);
+}
+
+
+.subtotal button{
+    color: red;
+    width: 30%;
+    padding: .5rem;
+    margin: 1rem auto;
+    border: .2px solid orange;
+    background-color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    overflow: hidden;
+}
+
+.subtotal button a{
+    text-decoration: none;
+    color: orange;
+    font-size: 1.1rem;
+}
+.subtotal p{
+    color: rgb(224, 146, 0);
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.subtotal input{
+    margin-right: 10px;
+}
+/* 
+@media screen and (max-width: 500px){
+    .subtotal{
+        width: 85%;
+        left: 4%;
+        overflow: hidden;
+    }
+} */
+
+@media screen and (max-width: 750px){
+    .subtotal{
+        top: 10%;
+        position: fixed;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 90%;
+        line-height: 1rem;
+    }
+
+    .subtotal button{
+        color: red;
+        width: 50%;
+    }
+}
+/* @media screen and (max-width: 490px){
+    .subtotal{
+        width: 80%;
+        left: 10%;
+    }
+} */

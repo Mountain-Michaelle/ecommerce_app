@@ -1,0 +1,91 @@
+.checkout_product{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    width: 50%;
+    background-color: #ffffff ;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    line-height: 1.2rem;
+    box-shadow: 1px 2px 14px 1px rgb(255, 183, 183);
+    overflow: hidden;
+    max-height: 200px;
+}
+
+.checkout_product img{
+    display: flex;
+    mask-image: none;
+    z-index: 0;
+    width: 40%;
+    height: 100%;
+    margin: 0 auto;
+    object-fit: cover !important;
+}
+
+.checkout_product_rating{
+    display: flex;
+}
+
+.info1{
+    padding: 0;
+    margin-bottom: 2rem;
+    width: 50%;
+}
+
+.info1 h3{
+    margin: 0;
+    width: 100%;
+    padding-left: 0;
+    color: rgb(79, 79, 79);
+}
+
+.desc{
+    color: black;
+    font-weight: 400;
+    text-align: justify;
+    width: 90%;
+}
+
+.checkout_product_rating{
+    padding: 0;
+    margin: 0;
+}
+
+.checkout_product_rating p{
+    margin-top: 0;
+}
+
+.checkout_product_rating p .MuiSvgIcon-root{
+    color: rgb(240, 156, 0);
+    font-size: 1.7rem;
+}
+
+.info1 button{
+    font-size: 1.1rem;
+    font-weight: 500;
+    background: white;
+    border-color: rgb(240, 156, 0);
+    outline: none;
+    border-radius: 1rem;
+    padding: .5rem;
+    color: red;
+}
+
+
+
+
+@media screen and (max-width: 750px){
+    .checkout_product{
+        flex-direction: row;
+        width: 70%;
+        margin: 0 auto;
+        padding: 25px;
+    }
+
+    .checkout_product img{
+        width: 50%;
+        max-height: 200px;
+        object-fit: contain;
+    }
+}

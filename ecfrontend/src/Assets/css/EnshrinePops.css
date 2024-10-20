@@ -1,0 +1,107 @@
+.epopup{
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(255, 107, 15, 0.8);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    animation: fadeInOut 0.8s ease-in;
+    max-width: 799px;
+    min-width: 300px;
+    color: white;
+    border: 1px solid rgb(255, 0, 0);
+}
+.off{
+    display: none !important;
+}
+.top{
+    top: 13%;
+}
+.top-right{
+    top: 13%;
+    right: 10%;
+}
+.top-left{
+    top: 13%;
+    left: 8%;
+}
+.right{
+    top: 13%;
+    right: 1%;
+}
+.left{
+    top: 13%;
+    left: 1%;
+}
+
+.center{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes fadeInOut {
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 1;
+    }
+    75%{
+        opacity: 1;;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.icon_success{
+
+}
+
+.icon_fail, .icon_success{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.icon_fail .MuiSvgIcon-root{
+    color: rgb(255, 22, 22);
+    font-size: 2.5rem;
+    margin-bottom: .3rem;
+    margin-top: .2rem;
+}
+
+.icon_success .MuiSvgIcon-root{
+    color: rgb(4, 255, 4);
+    font-size: 2.5rem;
+    margin-bottom: .3rem;
+    margin-top: .2rem;
+}
+.content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+}
+.title{
+    color: rgb(255, 255, 255);
+    padding: 0;
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.content p{
+    font-size: .8rem;
+    font-weight: 500;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+    letter-spacing: .1rem;
+}
