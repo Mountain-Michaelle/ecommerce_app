@@ -6,11 +6,8 @@ import Product from './Product';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import '../Assets/css/PDetails.css';
-import image1 from '../Assets/css/static/precuct2.jpeg';
-import image2 from '../Assets/css/static/product1.jpeg';
-import image3 from '../Assets/css/static/eyeGlass.jpg';
-import image4 from '../Assets/css/static/eyeGlass.jpg';
-import { Button } from '@mui/material';
+import { Button, Box} from '@mui/material';
+import {RotatingLines} from 'react-loader-spinner';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import ArrowBackIos from '@mui/icons-material/ArrowBackIos';
@@ -24,6 +21,7 @@ let [indexes, setIndexes] = useState(0)
 const [productDetails, setProductDetails] = useState({})
 const [img, setImg] = useState([])
 const [list, setList] = useState()
+const [loading, setLoading] = useState(false);
 
 const cartItem = basket.find(item => item.id === productDetails.id);
     // Get the quantity of the product in the cart
@@ -50,15 +48,19 @@ const handleArrowClickNext = () => {
 
    useEffect(() => {
     const fetchData = async () => {
+        setLoading(true)
         try{
            const res = await axios.get(`${process.env.REACT_APP_ENDPOINT_URL}/shop/product/${slug}/`);
            if(res.status==200){
             setProductDetails(res.data)
+            setLoading(false)
            }else{
             console.log(res.error)
+            setLoading(false)
            }
         }catch(error){
             console.log(error)
+            setLoading(false)
         }
     }
 
@@ -67,13 +69,16 @@ const handleArrowClickNext = () => {
 
 
 useEffect(() => {
+    setLoading(true)
     axios.get(`${process.env.REACT_APP_ENDPOINT_URL}/shop/product/${slug}/images/`)
     .then(res => {
         setImg(res.data)
         setList(res.data.map(item => item.images))
+        setLoading(false)
     }
     ).catch(error => {
         //error handling
+        setLoading(false)
     })
 
 },[])
@@ -119,7 +124,22 @@ const handleCountPlus = () => {
     return(
         <div className='detail_product'>
             <h3>Detail Product</h3>
-            <div className='cont'>
+            {
+                loading ? 
+                <Box sx={{display:'flex', justifyContent:'center', alignItems:'center', margin:'0 auto'}}>
+                <RotatingLines
+                 visible={true}
+                 height="100"
+                 width="100"
+                 position='center'
+                 ariaLabel="color-ring-loading"
+                 wrapperStyle={{}}
+                 wrapperClass="color-ring-wrapper"
+                 colors='white'
+                 strokeColor='rgb(225, 98, 0, 1)' />
+              </Box>
+              :
+               <div className='cont'>
                     <div className='details_left'>
                         <span className='arrow'>
                         <ArrowBackIosIcon onClick={handleArrowClickPrev} />
@@ -221,6 +241,8 @@ const handleCountPlus = () => {
                  
                 </div>
             </div>
+            }
+           
         </div>
     )
 }

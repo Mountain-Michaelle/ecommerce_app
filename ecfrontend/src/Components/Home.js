@@ -5,54 +5,30 @@ import '../Assets/css/Home.css';
 import Product from './Product';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { server_time } from '../Redux/Actions/cart';
-import { cart_time } from '../Redux/Actions/cart';
+import { product } from '../Redux/Actions/product';
 import {RotatingLines} from 'react-loader-spinner';
 import { Box } from '@mui/material';
 import Search2 from './Nav/Search2';
 
-const Home = ({server_time, serverTime, cart_expiration}) => {
-
-  const [product, setProduct] = useState([])
-  const [loading, setLoading] = useState(false)
-  
-  useEffect(() => {
-      const fetchData = async () => {
-        setLoading(true)
-        try{
-          const res = await axios.get(`${process.env.REACT_APP_ENDPOINT_URL}/shop/products/`)
-          if(res.status==200){
-            setProduct(res?.data)
-            setLoading(false)
-          }
-          else{
-            console.log(res.error)
-            setLoading(false)
-          }
-        }catch(error){
-          //
-        }
-      }
-
-      fetchData()
-  },[])
-
+const Home = ({products, status, loading, product}) => {
 
   useEffect(() => {
-    server_time()
+    if(product.length === 0 & status === 'idle'){
+     product()
+    }
   },[])
 
 // Ensure product is always an array before using .filter
-const featured = Array.isArray(product) && product.length !== 0
-  ? product.filter(prod => prod.featured).slice(0, 2)
+const featured = Array.isArray(products) && products.length !== 0
+  ? products.filter(prod => prod.featured).slice(0, 2)
   : [];
 
-const suggested = Array.isArray(product) && product.length !== 0
-  ? product.filter(prod => prod.suggested).slice(0, 2)
+const suggested = Array.isArray(products) && products.length !== 0
+  ? products.filter(prod => prod.suggested).slice(0, 2)
   : [];
 
-const most_popular = Array.isArray(product) && product.length !== 0
-  ? product.filter(prod => prod.most_popular).slice(0, 3)
+const most_popular = Array.isArray(products) && products.length !== 0
+  ? products.filter(prod => prod.most_popular).slice(0, 3)
   : [];
 
 
@@ -148,9 +124,9 @@ const most_popular = Array.isArray(product) && product.length !== 0
   )
 }
 const mapStateToProps = state => ({
-  cart_expiration: state.cart.cart_expiration,
-  serverTime : state.cart.serverTime,
-  server_time_now: state.cart.server_time_now,
+  products: state.product.products,
+  status: state.product.status,
+  loading: state.product.loading,
 })
 
-export default connect(mapStateToProps, {server_time, cart_time})(Home);
+export default connect(mapStateToProps, {product})(Home);
