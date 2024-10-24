@@ -5,13 +5,13 @@ from .models import Category, Product, Image
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
-        fields = ('id', 'images',)
+        fields = ('id', 'images')
         
         
 class ProductSerializers(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'category', 'suggested', 'featured', 'most_popular', 'images', 'name', 'slug', 'description', 'excerpt', 'price' , 'created', 'updated',)
+        fields = ('id', 'category', 'suggested', 'featured',
+                  'most_popular', 'images', 'name', 'slug', 'description',
+                  'excerpt', 'price' , 'created', 'updated', 'product_image')
         depth=1
-        
-        

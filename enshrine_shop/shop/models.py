@@ -21,7 +21,7 @@ class Category(models.Model):
 
 class Image(models.Model):
     images = models.FileField(upload_to='products/%Y/%m/%d', blank=True)
-    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, related_name='product_image')
     
     class Meta:
         ordering = ['images']

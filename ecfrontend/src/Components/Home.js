@@ -5,18 +5,18 @@ import '../Assets/css/Home.css';
 import Product from './Product';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { product } from '../Redux/Actions/product';
+import { product, product_details} from '../Redux/Actions/product';
 import {RotatingLines} from 'react-loader-spinner';
 import { Box } from '@mui/material';
 import Search2 from './Nav/Search2';
 
-const Home = ({products, status, loading, product}) => {
+const Home = ({products, prod_img, status, loading, product}) => {
 
   useEffect(() => {
-    if(product.length === 0 & status === 'idle'){
+    if(products.length === 0 & status === 'idle'){
      product()
     }
-  },[])
+  },[products])
 
 // Ensure product is always an array before using .filter
 const featured = Array.isArray(products) && products.length !== 0
@@ -30,8 +30,6 @@ const suggested = Array.isArray(products) && products.length !== 0
 const most_popular = Array.isArray(products) && products.length !== 0
   ? products.filter(prod => prod.most_popular).slice(0, 3)
   : [];
-
-
   return (
     <div className='home'> 
         <img src={onineshop} alt='' />
@@ -59,10 +57,10 @@ const most_popular = Array.isArray(products) && products.length !== 0
                    strokeColor='rgb(225, 98, 0)' />
                 </Box>
               :
-              most_popular?.map(item => {
+              most_popular?.map((item, index) => {
                 return(
-                  <Product id={item.id} title={item.name} price={item.price} excerpt={item.excerpt} rating={4} image={item.images} 
-                  description={item.excerpt} slug={item.slug}
+                  <Product key={index} id={item.id} title={item.name} price={item.price} excerpt={item.excerpt} rating={4} image={item.images} 
+                  description={item.excerpt} slug={item.slug} productImgs={item.product_image}
                   />
                 )
               })
@@ -85,9 +83,10 @@ const most_popular = Array.isArray(products) && products.length !== 0
                       strokeColor='rgb(225, 98, 0)' />
                    </Box>
                  :
-                 featured?.map(suggest => {
+                 featured?.map((suggest, index) => {
                     return(
-                       <Product  id={suggest.id} slug={suggest.slug} title={suggest.name} price={suggest.price} rating={5} description={suggest.excerpt} image={suggest.images}/>
+                       <Product key={index}  id={suggest.id} slug={suggest.slug} title={suggest.name} price={suggest.price} rating={5} 
+                       description={suggest.excerpt} image={suggest.images} productImgs={suggest.product_image} />
                     )
                   })
                 }
@@ -112,9 +111,10 @@ const most_popular = Array.isArray(products) && products.length !== 0
                     strokeColor='rgb(225, 98, 0)' />
                  </Box>
                :
-               suggested?.map(suggest => {
+               suggested?.map((suggest, index) => {
                     return(
-                       <Product  id={suggest.id} slug={suggest.slug} title={suggest.name} price={suggest.price} rating={5} description={suggest.excerpt} image={suggest.images}/>
+                       <Product key={index}  id={suggest.id} slug={suggest.slug} title={suggest.name} price={suggest.price} rating={5} 
+                       description={suggest.excerpt} image={suggest.images} productImgs={suggest.product_image} />
                     )
                   })
                 }
@@ -127,6 +127,7 @@ const mapStateToProps = state => ({
   products: state.product.products,
   status: state.product.status,
   loading: state.product.loading,
+  prod_img: state.product.prod_img,
 })
 
 export default connect(mapStateToProps, {product})(Home);

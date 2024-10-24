@@ -10,8 +10,8 @@ export const product_details = (slug) => async dispatch => {
    })
 
     try{
-        const res = await axios.get(`${process.env.REACT_APP_ENDPOINT_URL}/shop/product/${slug}/`)
-        const img_res = await axios.get(`${process.env.REACT_APP_ENDPOINT_URL}/shop/product/${slug}/images/`);
+        // const res = await axios.get(`${process.env.REACT_APP_ENDPOINT_URL}/shop/product/${slug}/`)
+        const img_res = await axios.get(`${process.env.REACT_APP_ENDPOINT_URL}/shop/products/images/`);
 
         if(img_res?.data){
             dispatch({
@@ -24,14 +24,14 @@ export const product_details = (slug) => async dispatch => {
             })
         }
 
-        if(res.data){
-            dispatch({ 
-                type: PRODUCT_DETAIL_SUCCESS,
-                payload: res.data,
-            })
-        }else{
-            dispatch()
-        }
+        // if(res.data){
+        //     dispatch({ 
+        //         type: PRODUCT_DETAIL_SUCCESS,
+        //         payload: res.data,
+        //     })
+        // }else{
+        //     dispatch()
+        // }
     }
     catch(error){
         dispatch({
